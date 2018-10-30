@@ -14,7 +14,13 @@
 # You should have received a copy of the GNU Affero General Public License, version 3,
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
+<%
+  require "shellwords"
 
+  def esc(x)
+      Shellwords.shellescape(x)
+  end
+%>
 export PATH=$PATH:/var/vcap/packages/mc
 
 ACCESS_KEY="<%= link('minio').p('credential.accesskey') %>"
